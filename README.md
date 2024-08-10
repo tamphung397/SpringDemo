@@ -5,4 +5,4 @@ Lợi ích khi sài AOP để có thể implement logic trước hoặc sau 1 me
 @After: excute sau function cần chỉ định \
 @Around: excute trước và sau function cần chỉ định \
 Pointcut: đại diện cho condition expression cần excute. Example: "@annotation(TamValidatedRequest)" \
-Join point: đại diện cho method cần excute. Example createProduct() \
+Join point: đại diện cho method cần excute. Example createProduct()
