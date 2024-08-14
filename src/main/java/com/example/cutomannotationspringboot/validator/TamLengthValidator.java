@@ -20,8 +20,7 @@ public class TamLengthValidator extends AbstractValidator<String, TamLength> {
     }
 
     @Override
-    public Exception getException(Field field) {
-        TamLength annotation = field.getAnnotation(TamLength.class);
+    public Exception getException(Field field, TamLength annotation) {
         return new NotInLengthException("Invalid length, please input between " + annotation.min() + " and " + annotation.max());
     }
 }

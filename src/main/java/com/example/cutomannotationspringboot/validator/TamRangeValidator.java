@@ -20,8 +20,7 @@ public class TamRangeValidator extends AbstractValidator<Integer, TamRange> {
     }
 
     @Override
-    public Exception getException(Field field) {
-        TamRange annotation = field.getAnnotation(TamRange.class);
+    public Exception getException(Field field, TamRange annotation) {
         return new NotInRangeException("Invalid range, please input between " + annotation.min() + " and " + annotation.max());
     }
 }

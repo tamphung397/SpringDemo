@@ -19,7 +19,7 @@ public class NotNullValidator extends AbstractValidator<Object, TamNotNull> {
     }
 
     @Override
-    public Exception getException(Field field) {
+    public Exception getException(Field field, TamNotNull annotation) {
         return new NotNullException(field.getName() + " cannot be null");
     }
 }

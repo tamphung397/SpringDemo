@@ -10,7 +10,7 @@ public abstract class AbstractValidator<T, A extends Annotation> {
             field.setAccessible(true);
             T value = (T) field.get(object);
             if (!isValid(value, annotation)) {
-                throw getException(field);
+                throw getException(field, annotation);
             }
         }
     }
@@ -19,5 +19,5 @@ public abstract class AbstractValidator<T, A extends Annotation> {
 
     public abstract boolean isValid(T value, A annotation);
 
-    public abstract Exception getException(Field field);
+    public abstract Exception getException(Field field,A annotation);
 }
