@@ -2,24 +2,24 @@ package com.example.cutomannotationspringboot.validator;
 
 import com.example.cutomannotationspringboot.annotation.TamNotNull;
 import com.example.cutomannotationspringboot.exception.NotNullException;
-import com.example.cutomannotationspringboot.utils.ValidatorUtils;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 
 @Component
-public class NotNullValidator extends AbstractValidator {
+public class NotNullValidator extends AbstractValidator<Object, TamNotNull> {
     @Override
-    public void validate(Field field, Object object) throws Exception {
-        if (field.isAnnotationPresent(TamNotNull.class)) {
-            Object value = ValidatorUtils.getValueByField(field, object);
-            if (!isValidNotNull(value)) {
-                throw new NotNullException(field.getName() + " cannot be null");
-            }
-        }
+    public Class<TamNotNull> getClazz() {
+        return TamNotNull.class;
     }
 
-    public boolean isValidNotNull(Object value) {
+    @Override
+    public boolean isValid(Object value, TamNotNull annotation) {
         return value != null;
+    }
+
+    @Override
+    public Exception getException(Field field, TamNotNull annotation) {
+        return new NotNullException(field.getName() + " cannot be null");
     }
 }
