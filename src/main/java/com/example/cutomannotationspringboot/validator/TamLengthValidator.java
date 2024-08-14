@@ -2,27 +2,26 @@ package com.example.cutomannotationspringboot.validator;
 
 import com.example.cutomannotationspringboot.annotation.TamLength;
 import com.example.cutomannotationspringboot.exception.NotInLengthException;
-import com.example.cutomannotationspringboot.utils.ValidatorUtils;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 
 @Component
-public class TamLengthValidator extends AbstractValidator{
-
+public class TamLengthValidator extends AbstractValidator<String, TamLength> {
     @Override
-    public void validate(Field field, Object object) throws Exception {
-        if (field.isAnnotationPresent(TamLength.class)) {
-            TamLength annotation = field.getAnnotation(TamLength.class);
-            Object value = ValidatorUtils.getValueByField(field, object);
-            if (!isValidLength((String) value, annotation.min(), annotation.max())) {
-                throw new NotInLengthException("Invalid length, please input between " + annotation.min() + " and " + annotation.max());
-            }
-        }
+    public Class<TamLength> getClazz() {
+        return TamLength.class;
     }
 
-    public boolean isValidLength(String value, int min, int max) {
+    @Override
+    public boolean isValid(String value, TamLength annotation) {
         int length = value.length();
-        return length >= min && length <= max;
+        return length >= annotation.min() && length <= annotation.max();
+    }
+
+    @Override
+    public Exception getException(Field field) {
+        TamLength annotation = field.getAnnotation(TamLength.class);
+        return new NotInLengthException("Invalid length, please input between " + annotation.min() + " and " + annotation.max());
     }
 }
