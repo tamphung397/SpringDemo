@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: CustomAnnotationSpringboot
+  datasource:
+    url: jdbc:postgresql://localhost:5432/SpringDemo
+    username: postgres
+    password: mysecretpassword
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+server:
+  port: 8989

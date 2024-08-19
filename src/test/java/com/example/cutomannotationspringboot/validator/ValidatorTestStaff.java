@@ -1,7 +1,7 @@
-package com.example.cutomannotationspringboot;
+package com.example.cutomannotationspringboot.validator;
 
 
-import com.example.cutomannotationspringboot.bean.Product;
+import com.example.cutomannotationspringboot.bean.Staff;
 import com.example.cutomannotationspringboot.exception.NotInLengthException;
 import com.example.cutomannotationspringboot.exception.NotInRangeException;
 import com.example.cutomannotationspringboot.exception.NotNullException;
@@ -17,8 +17,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-public class ValidatorTestProduct {
-
+public class ValidatorTestStaff {
     @TestConfiguration
     static class ValidationTestProductConfiguration{
         @Bean
@@ -46,25 +45,25 @@ public class ValidatorTestProduct {
     RequestValidator validator;
     @Test
     public void testValid() throws Exception {
-        Product product = new Product("Iphone", 4000, "Phone");
-        validator.validate(product);
+        Staff staff = new Staff("John", 25, "Dev", 1000);
+        validator.validate(staff);
     }
 
     @Test(expected = NotInRangeException.class)
-    public void testInValidRangePrice() throws Exception {
-        Product product = new Product("Iphone", 1000, "Phone");
-        validator.validate(product);
+    public void testInValidRangeAge() throws Exception {
+        Staff staff = new Staff("John", 50, "Dev", 1000);
+        validator.validate(staff);
     }
 
     @Test(expected = NotInLengthException.class)
-    public void testInValidLengthCategory() throws Exception {
-        Product product = new Product("Iphone", 4000, "SmartPhone");
-        validator.validate(product);
+    public void testInValidLengthPosition() throws Exception {
+        Staff staff = new Staff("John", 25, "Developer", 1000);
+        validator.validate(staff);
     }
 
     @Test(expected = NotNullException.class)
     public void testInValidNotNullName() throws Exception {
-        Product product = new Product(null, 4000, "SmartPhone");
-        validator.validate(product);
+        Staff staff = new Staff(null, 25, "Dev", 1000);
+        validator.validate(staff);
     }
 }
