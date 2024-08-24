@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CutomAnnotationSpringbootApplication {
+public class CustomAnnotationSpringbootApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CutomAnnotationSpringbootApplication.class, args);
+        SpringApplication.run(CustomAnnotationSpringbootApplication.class, args);
     }
 
 }
