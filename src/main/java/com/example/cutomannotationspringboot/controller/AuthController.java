@@ -32,7 +32,7 @@ public class AuthController {
     }
 
     @GetMapping("/ping")
-    public String test() {
+    public String testAuthorization() {
         try {
             return "Welcome";
         } catch (Exception e){
