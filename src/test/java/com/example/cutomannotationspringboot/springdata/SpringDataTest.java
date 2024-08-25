@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
@@ -17,7 +18,7 @@ public class SpringDataTest {
 
     @Test
     public void createStaff(){
-        User user = new User("test@gmail.com","test","1234");
+        User user = new User("test@gmail.com","test4",new BCryptPasswordEncoder().encode("1234"));
         Staff staff = new Staff("staff1","Dev",4000);
         staff.setUser(user);
         staffRepository.save(staff);
