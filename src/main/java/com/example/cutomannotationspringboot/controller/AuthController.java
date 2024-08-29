@@ -1,7 +1,7 @@
 package com.example.cutomannotationspringboot.controller;
 
-import com.example.cutomannotationspringboot.bean.LoginResponse;
-import com.example.cutomannotationspringboot.bean.LoginUser;
+import com.example.cutomannotationspringboot.dto.user.LoginResponseDto;
+import com.example.cutomannotationspringboot.dto.user.LoginUserDto;
 import com.example.cutomannotationspringboot.springsecurity.jwt.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +21,11 @@ public class AuthController {
     private JwtUtils jwtUtils;
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginUser loginUser){
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword()));
+    public ResponseEntity<LoginResponseDto> login(@RequestBody LoginUserDto loginUserDto){
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUserDto.getUsername(), loginUserDto.getPassword()));
         if(authentication.isAuthenticated()){
-            LoginResponse loginResponse = jwtUtils.generateToken(loginUser.getUsername());
-            return ResponseEntity.ok(loginResponse);
+            LoginResponseDto loginResponseDto = jwtUtils.generateToken(loginUserDto.getUsername());
+            return ResponseEntity.ok(loginResponseDto);
         } else {
             throw new UsernameNotFoundException("invalid user request..!!");
         }

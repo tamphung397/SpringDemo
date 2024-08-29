@@ -18,7 +18,7 @@ public class SpringDataTest {
 
     @Test
     public void createStaff(){
-        User user = new User("test@gmail.com","test4",new BCryptPasswordEncoder().encode("1234"));
+        User user = new User("test@gmail.com","test5",new BCryptPasswordEncoder().encode("1234"));
         Staff staff = new Staff("staff1","Dev",4000);
         staff.setUser(user);
         staffRepository.save(staff);

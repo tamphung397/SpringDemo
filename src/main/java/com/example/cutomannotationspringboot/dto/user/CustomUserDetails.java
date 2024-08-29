@@ -1,7 +1,6 @@
-package com.example.cutomannotationspringboot.bean;
+package com.example.cutomannotationspringboot.dto.user;
 
 import com.example.cutomannotationspringboot.springdata.entity.User;
-import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
