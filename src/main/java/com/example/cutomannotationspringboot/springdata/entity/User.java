@@ -17,6 +17,7 @@ public class User {
     private String email;
     private String username;
     private String password;
+    private String role;
     private int status;
 
     public User(String email, String username, String password) {

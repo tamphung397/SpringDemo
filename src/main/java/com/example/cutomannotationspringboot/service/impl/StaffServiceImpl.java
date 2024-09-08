@@ -50,6 +50,7 @@ public class StaffServiceImpl implements StaffService {
                 .username(createStaffDto.getUsername())
                 .password(passwordEncoder.encode(createStaffDto.getPassword()))
                 .status(EntityStatus.UserStatusEnum.ACTIVE.ordinal())
+                .role(EntityStatus.RoleEnum.STAFF.name())
                 .build();
         staff.setUser(user);
         staff.setStatus(EntityStatus.UserStatusEnum.ACTIVE.ordinal());

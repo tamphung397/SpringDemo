@@ -15,4 +15,9 @@ public class EntityStatus {
         DISABLE, //0
         ACTIVE, //1
     }
+
+    public enum RoleEnum{
+        ADMIN,
+        STAFF
+    }
 }
