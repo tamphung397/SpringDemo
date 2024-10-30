@@ -40,7 +40,7 @@ jobs:
           context: .
           dockerfile: Dockerfile
           push: true
-          tags: latest
+          tags: 7961/springdemo:latest
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
 #    - name: Update dependency graph
