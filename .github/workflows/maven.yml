@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    runs-on: label-1
+    runs-on: label-2
 
     steps:
       - uses: actions/checkout@v4
