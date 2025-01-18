@@ -25,6 +25,6 @@ public class SpringDataTest {
     public void createStaff() throws IOException {
 //        System.out.println("oke123");
 //        Files.createDirectory(Paths.get("/tmp"));
-        Files.createTempFile(Paths.get("/tmps"), null, null);
+//        Files.createTempFile(Paths.get("/tmps"), null, null);
     }
 }
