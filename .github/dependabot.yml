@@ -9,8 +9,8 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-      time: "09:25"
-      timezone:"UTC"
+      time: "09:31"
+      timezone: "UTC"
     groups:
       dependencies:
         patterns:
